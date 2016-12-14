@@ -25,5 +25,24 @@ package com.weibo.api.motan.config;
  */
 
 public class ExtConfig extends AbstractConfig {
+    //是否开启客户端访问的ip检查,add by gaoke,2016年12月14日
+    private String enabledIPCheck;
+    //允许客户端访问的ips,add by gaoke,2016年12月14日
+    private String allowedIPs;
 
+    public String getEnabledIPCheck() {
+        return enabledIPCheck;
+    }
+
+    public void setEnabledIPCheck(String enabledIPCheck) {
+        this.enabledIPCheck = enabledIPCheck;
+    }
+
+    public String getAllowedIPs() {
+        return allowedIPs;
+    }
+
+    public void setAllowedIPs(String allowedIPs) {
+        this.allowedIPs = allowedIPs;
+    }
 }

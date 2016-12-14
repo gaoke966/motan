@@ -80,7 +80,7 @@ public class RefererInvocationHandler<T> implements InvocationHandler {
             if("toString".equals(method.getName())){
                 return clustersToString();
             }
-            throw new MotanServiceException("can not invoke local method:" + method.getName());
+//            throw new MotanServiceException("can not invoke local method:" + method.getName());
         }
         DefaultRequest request = new DefaultRequest();
 
