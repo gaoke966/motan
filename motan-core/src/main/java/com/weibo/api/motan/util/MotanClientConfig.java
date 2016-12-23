@@ -32,11 +32,11 @@ public class MotanClientConfig {
     static {
         try {
             props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("motanclient.properties"));
-            logger.info("read specialConfig--->motanclient.properties success");
+            logger.info("read defaultConfig--->motanclient.properties success");
         } catch (FileNotFoundException e) {
-            logger.info("read specialConfig--->motanclient.properties fail",e);
+            logger.info("read defaultConfig--->motanclient.properties fail",e);
         } catch (Exception e) {
-            logger.info("load specialConfig--->motanclient.properties fail",e);
+            logger.info("load defaultConfig--->motanclient.properties fail",e);
         }
     }
 
