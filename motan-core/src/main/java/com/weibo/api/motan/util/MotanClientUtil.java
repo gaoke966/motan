@@ -83,6 +83,7 @@ public class MotanClientUtil {
                 if (MotanClientConfig.getValue("zRegProtocol") != null) zRegProtocol = MotanClientConfig.getValue("zRegProtocol");
                 if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
                 if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
+                if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");
                 if (MotanClientConfig.getValue("zConnectTimeout") != null) zConnectTimeout = new Integer(MotanClientConfig.getValue("zConnectTimeout"));
                 if (MotanClientConfig.getValue("pId") != null) pId = MotanClientConfig.getValue("pId");
                 if (MotanClientConfig.getValue("pName") != null) pName = MotanClientConfig.getValue("pName");
@@ -105,6 +106,7 @@ public class MotanClientUtil {
                 if (motanClientConfig.getValue("zRegProtocol") != null) zRegProtocol = motanClientConfig.getValue("zRegProtocol");
                 if (motanClientConfig.getValue("zAddress") != null) zAddress = motanClientConfig.getValue("zAddress");
                 if (motanClientConfig.getValue("zUsername") != null) zUsername = motanClientConfig.getValue("zUsername");
+                if (motanClientConfig.getValue("zPassword") != null) zPassword = motanClientConfig.getValue("zPassword");
                 if (motanClientConfig.getValue("zConnectTimeout") != null) zConnectTimeout = new Integer(motanClientConfig.getValue("zConnectTimeout"));
                 if (motanClientConfig.getValue("pId") != null) pId = motanClientConfig.getValue("pId");
                 if (motanClientConfig.getValue("pName") != null) pName = motanClientConfig.getValue("pName");
