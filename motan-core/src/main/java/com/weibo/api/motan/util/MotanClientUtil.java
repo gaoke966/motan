@@ -49,6 +49,7 @@ public class MotanClientUtil {
      * @return T
      */
     public static<T> T getMotanServiceReferer(Class<T> tClass, String group, String directUrl, String specialConfig) {
+        long begin = System.currentTimeMillis();
 
         //ServiceReferer默认配置
         String rVersion = "1.0";
@@ -160,6 +161,7 @@ public class MotanClientUtil {
         // 获取代理服务
         T service = motanServiceReferer.getRef();
 
+        logger.info("motanServiceReferer.getRef.cost"+(System.currentTimeMillis()-begin));
         return service;
 
     }
