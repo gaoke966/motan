@@ -15,6 +15,16 @@ public class MotanSingletonClientUtil {
      * 获取motan服务接口的代理实例
      * @param tClass：XxxApi.class
      * @param group:server端对应组
+     * @param <T>
+     * @return T
+     */
+    public static<T> T getMotanServiceReferer(Class<T> tClass, String group) {
+        return getMotanServiceReferer(tClass, group, null);
+    }
+    /**
+     * 获取motan服务接口的代理实例
+     * @param tClass：XxxApi.class
+     * @param group:server端对应组
      * @param directUrl:指定调用机器或者调用本地服务需添加此配置
      * @param <T>
      * @return T
