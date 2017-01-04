@@ -49,9 +49,12 @@
     <authentication-manager id="authenticationManager">
         <authentication-provider>
             <user-service>
-                <user name="guest" password="guest123" authorities="ROLE_USER"/>
-                <user name="admin" password="admin966" authorities="ROLE_ADMIN,ROLE_USER"/>
+                <user name="guest" password="8f7d547b3484c1808c75f97146d82c3c" authorities="ROLE_USER"/>
+                <user name="admin" password="c0c9442a92c1d3ae94290e56846586f1" authorities="ROLE_ADMIN,ROLE_USER"/>
             </user-service>
+            <password-encoder hash="md5">
+                <salt-source user-property="username" />
+            </password-encoder>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>
