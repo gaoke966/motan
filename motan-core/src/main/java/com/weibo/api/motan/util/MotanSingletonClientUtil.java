@@ -54,7 +54,7 @@ public class MotanSingletonClientUtil {
         Integer pRequestTimeout = 2000;
         Integer pMaxClientConnection = 500;
         Integer pMinClientConnection = 20   ;
-        String pSerialization = null;
+        String pSerialization = "hprose";
 
         RefererConfig<T> motanServiceReferer = new RefererConfig<T>();
 
