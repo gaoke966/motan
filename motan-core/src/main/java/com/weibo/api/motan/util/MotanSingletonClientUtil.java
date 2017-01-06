@@ -54,6 +54,7 @@ public class MotanSingletonClientUtil {
         Integer pRequestTimeout = 2000;
         Integer pMaxClientConnection = 500;
         Integer pMinClientConnection = 20   ;
+        String pSerialization = null;
 
         RefererConfig<T> motanServiceReferer = new RefererConfig<T>();
 
@@ -75,6 +76,8 @@ public class MotanSingletonClientUtil {
             if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
             if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
             if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");
+
+            if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
         }else{
             logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
         }
@@ -93,6 +96,7 @@ public class MotanSingletonClientUtil {
         protocol.setRequestTimeout(pRequestTimeout);
         protocol.setMaxClientConnection(pMaxClientConnection);
         protocol.setMinClientConnection(pMinClientConnection);
+        if(pSerialization != null && !"".equals(pSerialization))protocol.setSerialization(pSerialization);
         motanServiceReferer.setProtocol(protocol);
 
         // 指定调用机器或者调用本地服务需添加此配置

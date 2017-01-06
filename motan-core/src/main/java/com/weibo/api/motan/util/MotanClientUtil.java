@@ -73,6 +73,7 @@ public class MotanClientUtil {
         Integer pRequestTimeout = 2000;
         Integer pMaxClientConnection = 500;
         Integer pMinClientConnection = 20   ;
+        String pSerialization = "hprose";
 
         if(specialConfig == null || "".equals(specialConfig)) {
             if (MotanClientConfig.getProperties().size() > 0) {
@@ -93,6 +94,7 @@ public class MotanClientUtil {
                 if (MotanClientConfig.getValue("pRequestTimeout") != null) pRequestTimeout = new Integer(MotanClientConfig.getValue("pRequestTimeout"));
                 if (MotanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(MotanClientConfig.getValue("pMaxClientConnection"));
                 if (MotanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(MotanClientConfig.getValue("pMinClientConnection"));
+                if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
             }else{
                 logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
             }
@@ -116,6 +118,7 @@ public class MotanClientUtil {
                 if (motanClientConfig.getValue("pRequestTimeout") != null) pRequestTimeout = new Integer(motanClientConfig.getValue("pRequestTimeout"));
                 if (motanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(motanClientConfig.getValue("pMaxClientConnection"));
                 if (motanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(motanClientConfig.getValue("pMinClientConnection"));
+                if (motanClientConfig.getValue("pSerialization") != null) pSerialization = motanClientConfig.getValue("pSerialization");
 
             }else{
                 logger.info("读取自定义属性文件--->失败,将使用默认值！- 原因：文件名"+specialConfig+"错误或者文件不存在！");
@@ -153,6 +156,7 @@ public class MotanClientUtil {
         protocol.setRequestTimeout(pRequestTimeout);
         protocol.setMaxClientConnection(pMaxClientConnection);
         protocol.setMinClientConnection(pMinClientConnection);
+        if(pSerialization != null && !"".equals(pSerialization))protocol.setSerialization(pSerialization);
         motanServiceReferer.setProtocol(protocol);
 
         // 指定调用机器或者调用本地服务需添加此配置
