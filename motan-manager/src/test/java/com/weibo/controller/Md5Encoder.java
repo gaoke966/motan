@@ -12,5 +12,9 @@ public class Md5Encoder {
         System.out.println(ps);
         ps = md5PasswordEncoder.encodePassword("admin966","admin");
         System.out.println(ps);
+        ps = md5PasswordEncoder.encodePassword("admin","admin");
+        System.out.println(ps);
+        ps = md5PasswordEncoder.encodePassword("guest","guest");
+        System.out.println(ps);
     }
 }

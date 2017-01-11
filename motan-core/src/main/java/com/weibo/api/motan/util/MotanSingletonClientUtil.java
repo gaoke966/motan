@@ -38,6 +38,7 @@ public class MotanSingletonClientUtil {
         Integer rRetries = 2;
         String rAccessLog = "false";
         String rCheck = "true";
+        String rThrowException = "false";
 
         //RegistryConfig默认配置
         String zRegProtocol = "zookeeper";
@@ -68,11 +69,14 @@ public class MotanSingletonClientUtil {
         motanServiceReferer.setRetries(rRetries);
         motanServiceReferer.setAccessLog(rAccessLog);
         motanServiceReferer.setCheck(rCheck);
+        motanServiceReferer.setThrowException(new Boolean(rThrowException));
 
         // 配置ZooKeeper注册中心
         RegistryConfig zookeeperRegistry = new RegistryConfig();
         zookeeperRegistry.setRegProtocol(zRegProtocol);
         if (MotanClientConfig.getProperties().size() > 0) {
+            if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
+
             if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
             if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
             if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");

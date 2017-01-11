@@ -83,11 +83,14 @@ public class MotanClientUtil {
                 if (MotanClientConfig.getValue("rRetries") != null) rRetries = new Integer(MotanClientConfig.getValue("rRetries"));
                 if (MotanClientConfig.getValue("rAccessLog") != null) rAccessLog = MotanClientConfig.getValue("rAccessLog");
                 if (MotanClientConfig.getValue("rCheck") != null) rCheck = MotanClientConfig.getValue("rCheck");
+                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
+
                 if (MotanClientConfig.getValue("zRegProtocol") != null) zRegProtocol = MotanClientConfig.getValue("zRegProtocol");
                 if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
                 if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
                 if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");
                 if (MotanClientConfig.getValue("zConnectTimeout") != null) zConnectTimeout = new Integer(MotanClientConfig.getValue("zConnectTimeout"));
+
                 if (MotanClientConfig.getValue("pId") != null) pId = MotanClientConfig.getValue("pId");
                 if (MotanClientConfig.getValue("pName") != null) pName = MotanClientConfig.getValue("pName");
                 if (MotanClientConfig.getValue("pHaStrategy") != null) pHaStrategy = MotanClientConfig.getValue("pHaStrategy");
@@ -96,7 +99,7 @@ public class MotanClientUtil {
                 if (MotanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(MotanClientConfig.getValue("pMaxClientConnection"));
                 if (MotanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(MotanClientConfig.getValue("pMinClientConnection"));
                 if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
-                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
+
             }else{
                 logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
             }
@@ -108,11 +111,14 @@ public class MotanClientUtil {
                 if (motanClientConfig.getValue("rRetries") != null) rRetries = new Integer(motanClientConfig.getValue("rRetries"));
                 if (motanClientConfig.getValue("rAccessLog") != null) rAccessLog = motanClientConfig.getValue("rAccessLog");
                 if (motanClientConfig.getValue("rCheck") != null) rCheck = motanClientConfig.getValue("rCheck");
+                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
+
                 if (motanClientConfig.getValue("zRegProtocol") != null) zRegProtocol = motanClientConfig.getValue("zRegProtocol");
                 if (motanClientConfig.getValue("zAddress") != null) zAddress = motanClientConfig.getValue("zAddress");
                 if (motanClientConfig.getValue("zUsername") != null) zUsername = motanClientConfig.getValue("zUsername");
                 if (motanClientConfig.getValue("zPassword") != null) zPassword = motanClientConfig.getValue("zPassword");
                 if (motanClientConfig.getValue("zConnectTimeout") != null) zConnectTimeout = new Integer(motanClientConfig.getValue("zConnectTimeout"));
+
                 if (motanClientConfig.getValue("pId") != null) pId = motanClientConfig.getValue("pId");
                 if (motanClientConfig.getValue("pName") != null) pName = motanClientConfig.getValue("pName");
                 if (motanClientConfig.getValue("pHaStrategy") != null) pHaStrategy = motanClientConfig.getValue("pHaStrategy");
@@ -121,7 +127,6 @@ public class MotanClientUtil {
                 if (motanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(motanClientConfig.getValue("pMaxClientConnection"));
                 if (motanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(motanClientConfig.getValue("pMinClientConnection"));
                 if (motanClientConfig.getValue("pSerialization") != null) pSerialization = motanClientConfig.getValue("pSerialization");
-                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
 
             }else{
                 logger.info("读取自定义属性文件--->失败,将使用默认值！- 原因：文件名"+specialConfig+"错误或者文件不存在！");
