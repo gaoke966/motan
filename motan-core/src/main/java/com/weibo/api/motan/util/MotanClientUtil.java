@@ -57,6 +57,7 @@ public class MotanClientUtil {
         Integer rRetries = 2;
         String rAccessLog = "false";
         String rCheck = "true";
+        String rThrowException = "false";
 
         //RegistryConfig默认配置
         String zRegProtocol = "zookeeper";
@@ -95,6 +96,7 @@ public class MotanClientUtil {
                 if (MotanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(MotanClientConfig.getValue("pMaxClientConnection"));
                 if (MotanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(MotanClientConfig.getValue("pMinClientConnection"));
                 if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
+                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
             }else{
                 logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
             }
@@ -119,6 +121,7 @@ public class MotanClientUtil {
                 if (motanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(motanClientConfig.getValue("pMaxClientConnection"));
                 if (motanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(motanClientConfig.getValue("pMinClientConnection"));
                 if (motanClientConfig.getValue("pSerialization") != null) pSerialization = motanClientConfig.getValue("pSerialization");
+                if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
 
             }else{
                 logger.info("读取自定义属性文件--->失败,将使用默认值！- 原因：文件名"+specialConfig+"错误或者文件不存在！");
@@ -137,6 +140,7 @@ public class MotanClientUtil {
         motanServiceReferer.setRetries(rRetries);
         motanServiceReferer.setAccessLog(rAccessLog);
         motanServiceReferer.setCheck(rCheck);
+        motanServiceReferer.setThrowException(new Boolean(rThrowException));
 
         // 配置ZooKeeper注册中心
         RegistryConfig zookeeperRegistry = new RegistryConfig();
