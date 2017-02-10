@@ -54,10 +54,10 @@ public class MotanClientUtil {
         //ServiceReferer默认配置
         String rVersion = "1.0";
         Integer rRequestTimeout = 3000;
-        Integer rRetries = 2;
+        Integer rRetries = 0;
         String rAccessLog = "false";
         String rCheck = "true";
-        String rThrowException = "false";
+        String rThrowException = "true";
 
         //RegistryConfig默认配置
         String zRegProtocol = "zookeeper";

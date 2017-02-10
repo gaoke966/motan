@@ -18,9 +18,8 @@ package com.weibo.api.motan.serialize;
 
 import com.weibo.api.motan.codec.Serialization;
 import com.weibo.api.motan.core.extension.SpiMeta;
-import hprose.io.ByteBufferStream;
-import hprose.io.HproseReader;
-import hprose.io.HproseWriter;
+import hprose.io.*;
+
 import java.io.IOException;
 
 /**
@@ -39,8 +38,9 @@ public class HproseSerialization implements Serialization {
         ByteBufferStream stream = null;
         try {
             stream = new ByteBufferStream();
-            HproseWriter writer = new HproseWriter(stream.getOutputStream());
-            writer.serialize(data);
+//            HproseWriter writer = new HproseWriter(stream.getOutputStream());
+//            writer.serialize(data);
+            stream = HproseFormatter.serialize(data, HproseMode.FieldMode);
             byte[] result = stream.toArray();
             return result;
         }
@@ -54,6 +54,7 @@ public class HproseSerialization implements Serialization {
     @SuppressWarnings("unchecked")
     @Override
     public <T> T deserialize(byte[] data, Class<T> clz) throws IOException {
-        return new HproseReader(data).unserialize(clz);
+//        return new HproseReader(data).unserialize(clz);
+        return HproseFormatter.unserialize(data, HproseMode.FieldMode, clz);
     }
 }
