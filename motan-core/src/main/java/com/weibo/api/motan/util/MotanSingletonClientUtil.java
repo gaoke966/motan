@@ -57,6 +57,34 @@ public class MotanSingletonClientUtil {
         Integer pMinClientConnection = 20   ;
         String pSerialization = "hprose";
 
+        if (MotanClientConfig.getProperties().size() > 0) {
+            if (MotanClientConfig.getValue("rVersion") != null) rVersion = MotanClientConfig.getValue("rVersion");
+            if (MotanClientConfig.getValue("rRequestTimeout") != null) rRequestTimeout = new Integer(MotanClientConfig.getValue("rRequestTimeout"));
+            if (MotanClientConfig.getValue("rRetries") != null) rRetries = new Integer(MotanClientConfig.getValue("rRetries"));
+            if (MotanClientConfig.getValue("rAccessLog") != null) rAccessLog = MotanClientConfig.getValue("rAccessLog");
+            if (MotanClientConfig.getValue("rCheck") != null) rCheck = MotanClientConfig.getValue("rCheck");
+            if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
+
+            if (MotanClientConfig.getValue("zRegProtocol") != null) zRegProtocol = MotanClientConfig.getValue("zRegProtocol");
+            if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
+            if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
+            if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");
+            if (MotanClientConfig.getValue("zConnectTimeout") != null) zConnectTimeout = new Integer(MotanClientConfig.getValue("zConnectTimeout"));
+
+            if (MotanClientConfig.getValue("pId") != null) pId = MotanClientConfig.getValue("pId");
+            if (MotanClientConfig.getValue("pName") != null) pName = MotanClientConfig.getValue("pName");
+            if (MotanClientConfig.getValue("pHaStrategy") != null) pHaStrategy = MotanClientConfig.getValue("pHaStrategy");
+            if (MotanClientConfig.getValue("pLoadbalance") != null) pLoadbalance = MotanClientConfig.getValue("pLoadbalance");
+            if (MotanClientConfig.getValue("pRequestTimeout") != null) pRequestTimeout = new Integer(MotanClientConfig.getValue("pRequestTimeout"));
+            if (MotanClientConfig.getValue("pMaxClientConnection") != null) pMaxClientConnection = new Integer(MotanClientConfig.getValue("pMaxClientConnection"));
+            if (MotanClientConfig.getValue("pMinClientConnection") != null) pMinClientConnection = new Integer(MotanClientConfig.getValue("pMinClientConnection"));
+            if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
+
+
+        }else{
+            logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
+        }
+
         RefererConfig<T> motanServiceReferer = new RefererConfig<T>();
 
         // 设置接口及实现类
@@ -74,17 +102,6 @@ public class MotanSingletonClientUtil {
         // 配置ZooKeeper注册中心
         RegistryConfig zookeeperRegistry = new RegistryConfig();
         zookeeperRegistry.setRegProtocol(zRegProtocol);
-        if (MotanClientConfig.getProperties().size() > 0) {
-            if (MotanClientConfig.getValue("rThrowException") != null) rThrowException = MotanClientConfig.getValue("rThrowException");
-
-            if (MotanClientConfig.getValue("zAddress") != null) zAddress = MotanClientConfig.getValue("zAddress");
-            if (MotanClientConfig.getValue("zUsername") != null) zUsername = MotanClientConfig.getValue("zUsername");
-            if (MotanClientConfig.getValue("zPassword") != null) zPassword = MotanClientConfig.getValue("zPassword");
-
-            if (MotanClientConfig.getValue("pSerialization") != null) pSerialization = MotanClientConfig.getValue("pSerialization");
-        }else{
-            logger.info("读取默认属性文件--->失败,将使用默认值！- 原因：文件名motanclient.properties错误或者文件不存在！");
-        }
         zookeeperRegistry.setAddress(zAddress);
         zookeeperRegistry.setUsername(zUsername);
         zookeeperRegistry.setPassword(zPassword);
